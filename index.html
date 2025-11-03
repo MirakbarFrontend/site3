@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Speakingni 3x oshirish mumkin!</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: 'Montserrat', Arial, sans-serif;
+				color: #000000;
+			}
+
+			ul,
+			ol,
+			li,
+			a {
+				list-style: none;
+				text-decoration: none;
+			}
+
+			.container {
+				max-width: clamp(240px, 60vw, 390px);
+				width: 100%;
+				margin: 0 auto;
+				padding: 0 clamp(10px, 4vw, 20px);
+			}
+
+			.up {
+				text-align: center;
+				padding-bottom: clamp(16px, 4vw, 21px);
+			}
+			.up__container {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+			}
+			.up__top {
+				border-bottom-left-radius: clamp(14px, 4vw, 24px);
+				border-bottom-right-radius: clamp(14px, 4vw, 24px);
+				background-color: #e2e2e2;
+				padding: clamp(12px, 4vw, 18px) clamp(16px, 5vw, 25px);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: clamp(16px, 6vw, 32px);
+				max-width: clamp(220px, 80vw, 320px);
+				width: 100%;
+				margin-bottom: clamp(12px, 3vw, 16px);
+			}
+			.up__top-left {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: clamp(4px, 1.2vw, 5px);
+			}
+			.up__top-img {
+				width: clamp(16px, 4vw, 25px);
+				height: clamp(16px, 4vw, 25px);
+			}
+			.up__top-text {
+				font-weight: 500;
+				font-size: clamp(12px, 2.2vw, 16px);
+				line-height: 100%;
+			}
+			.up__top-title {
+				font-weight: 700;
+				font-size: clamp(14px, 2.6vw, 18.44px);
+				line-height: clamp(20px, 4vw, 30px);
+				letter-spacing: 0%;
+			}
+			.up__title {
+				font-weight: 900;
+				font-size: clamp(14px, 3vw, 20px);
+				line-height: 125%;
+				letter-spacing: 0%;
+				vertical-align: middle;
+				text-transform: uppercase;
+			}
+			.up__title span {
+				color: #9b1121;
+			}
+
+			.up__wrapper {
+				margin-top: -140px;
+			}
+			.up__wrapper-img {
+				width: clamp(200px, 70vw, 260px);
+				height: clamp(340px, 85vw, 410px);
+
+				top: 140px;
+				position: relative;
+			}
+			.up__wrapper-info {
+				backdrop-filter: blur(120px);
+				position: relative;
+				z-index: 10;
+				border: clamp(2px, 0.6vw, 3px) solid #e1ddda;
+				max-width: clamp(200px, 75vw, 310px);
+				width: 100%;
+				padding: clamp(8px, 2.4vw, 11px) clamp(20px, 6vw, 31px);
+				background-color: gray;
+				border-radius: clamp(18px, 3.5vw, 24px);
+				margin-bottom: clamp(6px, 2vw, 9px);
+			}
+			.up__wrapper-info-title {
+				font-weight: 600;
+				font-size: clamp(12px, 2.2vw, 17px);
+				line-height: clamp(16px, 2.4vw, 20px);
+				letter-spacing: 0%;
+				color: #ffffff;
+				margin-bottom: clamp(3px, 1vw, 4px);
+			}
+			.up__wrapper-info-list {
+				color: #fff;
+				text-align: start;
+				max-width: clamp(140px, 60vw, 220px);
+				width: 100%;
+			}
+			.up__wrapper-info-list-item {
+				list-style: disc;
+				font-weight: 500;
+				font-size: clamp(10px, 1.6vw, 12px);
+				line-height: clamp(14px, 2.4vw, 18px);
+				letter-spacing: 0%;
+			}
+			.up__btn {
+				box-shadow: 0px clamp(3px, 1vw, 4px) 0px 0px #71000d;
+				border-radius: clamp(10px, 3vw, 15px);
+				padding: clamp(18px, 5vw, 23px) clamp(46px, 12vw, 70px);
+				background-color: #9b1121;
+				border: none;
+				color: #fff;
+				max-width: clamp(220px, 80vw, 307px);
+				width: 100%;
+				font-weight: 700;
+				font-size: clamp(16px, 3.2vw, 24px);
+				line-height: clamp(18px, 3vw, 23.25px);
+				letter-spacing: 0%;
+				white-space: nowrap;
+				margin-bottom: clamp(6px, 2vw, 9px);
+			}
+			.up__text {
+				font-weight: 400;
+				font-size: clamp(12px, 2vw, 14px);
+				line-height: clamp(18px, 3vw, 23.25px);
+				letter-spacing: 0%;
+				margin-bottom: clamp(12px, 3vw, 16px);
+			}
+			.speaking__time {
+				border: none;
+				background-color: transparent;
+				font-weight: 700;
+				font-size: clamp(20px, 4vw, 28px);
+				line-height: clamp(20px, 3vw, 23.25px);
+				letter-spacing: 0%;
+				margin-bottom: clamp(12px, 3vw, 16px);
+			}
+			.up__info {
+				border: clamp(3px, 0.8vw, 3px) solid transparent;
+				border-radius: clamp(14px, 3vw, 18px);
+				background: linear-gradient(white, white) padding-box, linear-gradient(0deg, #9b1121 0%, #f2f2f2 80.71%) border-box;
+				display: flex;
+				margin-bottom: clamp(16px, 3vw, 23px);
+				max-width: clamp(220px, 80vw, 307px);
+				width: 100%;
+				padding: clamp(8px, 2vw, 10px) clamp(1px, 0.5vw, 2px);
+			}
+
+			.up__info-img {
+				width: clamp(50px, 10vw, 81px);
+				height: clamp(56px, 11vw, 92px);
+			}
+			.up__info-right {
+				text-align: start;
+			}
+			.up__info-right-title {
+				font-weight: 900;
+				font-size: clamp(13px, 2.6vw, 18px);
+				line-height: clamp(18px, 3vw, 24px);
+				letter-spacing: 0%;
+				text-transform: uppercase;
+				color: #9b1121;
+			}
+			.up__info-right-text {
+				font-weight: 400;
+				font-size: clamp(12px, 2vw, 16px);
+				line-height: clamp(16px, 3vw, 21px);
+				letter-spacing: 0%;
+				color: #000000;
+			}
+			.up__title-free {
+				font-weight: 400;
+				font-size: clamp(18px, 4vw, 28px);
+				line-height: clamp(30px, 5vw, 42px);
+				letter-spacing: 0%;
+				text-transform: uppercase;
+				margin-bottom: clamp(18px, 3vw, 25px);
+			}
+			.up__title-free span {
+				color: #9b1121;
+				font-weight: 700;
+			}
+			.up__list {
+				max-width: clamp(200px, 85vw, 309px);
+				width: 100%;
+				margin-bottom: clamp(18px, 4vw, 27px);
+			}
+			.up__list-item {
+				border: clamp(1px, 0.3vw, 1px) solid #9b1121;
+				padding: clamp(18px, 4vw, 25px) clamp(14px, 3vw, 21px);
+				border-radius: clamp(6px, 2vw, 8px);
+				position: relative;
+				height: clamp(70px, 10vw, 90px);
+			}
+			.p {
+				padding-bottom: clamp(60px, 8vw, 80px);
+			}
+			.up__list-item:not(:last-child) {
+				margin-bottom: clamp(16px, 3vw, 22px);
+			}
+			.up__list-item-number {
+				position: absolute;
+				left: clamp(80px, 30vw, 140px);
+				top: clamp(-10px, -1vw, -15px);
+				background-color: #9b1121;
+				width: clamp(22px, 4vw, 28px);
+				height: clamp(22px, 4vw, 28px);
+				font-weight: 500;
+				font-size: clamp(12px, 1.8vw, 14px);
+				line-height: clamp(23px, 3vw, 23.25px);
+				letter-spacing: 0%;
+				text-align: center;
+				border-radius: clamp(6px, 2vw, 8px);
+				color: #fff;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.up__list-item-text {
+				font-weight: 400;
+				font-size: clamp(10px, 2vw, 16px);
+				line-height: clamp(18px, 3vw, 22px);
+				letter-spacing: 0%;
+				text-align: center;
+				width: 100%;
+				margin: 0 auto;
+			}
+			.up__list-item-text span {
+				font-weight: 600;
+			}
+			.w1 {
+				max-width: clamp(120px, 40vw, 160px);
+			}
+			.w2 {
+				max-width: clamp(180px, 65vw, 250px);
+			}
+			.w3 {
+				max-width: clamp(200px, 70vw, 260px);
+			}
+			.up__title-opinion {
+				font-weight: 900;
+				font-size: clamp(15px, 3vw, 21px);
+				line-height: 125%;
+				letter-spacing: 0%;
+				vertical-align: middle;
+				text-transform: uppercase;
+				margin-bottom: clamp(14px, 3vw, 18px);
+			}
+			.up__bottom {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.up__bottom-text {
+				font-weight: 500;
+				font-size: clamp(9px, 2vw, 16px);
+				line-height: clamp(16px, 3vw, 18px);
+				letter-spacing: 0%;
+				text-align: start;
+				color: #444444;
+				max-width: clamp(240px, 80vw, 290px);
+				width: 100%;
+				display: flex;
+				align-items: end;
+				justify-content: center;
+			}
+
+			.speaking__bottom {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: clamp(5px, 1vw, 7px);
+				margin-bottom: clamp(26px, 4vw, 34px);
+			}
+
+			.speaking__bottom-img1,
+			.speaking__bottom-img2 {
+				width: clamp(120px, 25vw, 238px);
+				height: clamp(80px, 15vw, 141px);
+			}
+
+			/* Modal asosiy fon */
+			.modal {
+				display: none;
+				position: fixed;
+				z-index: 1000;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.7);
+				justify-content: center;
+				align-items: center;
+			}
+
+			.modal-content {
+				max-width: 570px;
+				background: white;
+				padding: 30px;
+				width: 90%;
+				position: relative;
+				text-align: center;
+
+				/* Animatsiya */
+				animation: modalFadeIn 0.4s ease-out;
+			}
+
+			.modal-title {
+				font-size: 22px;
+				font-weight: 600;
+				line-height: 1.2;
+			}
+			.close {
+				position: absolute;
+				right: 15px;
+				top: 15px;
+				font-size: 24px;
+				cursor: pointer;
+			}
+
+			.input {
+				width: 100%;
+				padding: 20px;
+				margin-bottom: 30px;
+				border: 1px solid #ccc;
+				border-radius: 5px;
+				font-size: 20px;
+			}
+
+			input.error {
+				border: 2px solid red;
+			}
+
+			label {
+				display: block;
+				text-align: left;
+				font-size: 16px;
+				font-weight: 100;
+				margin-bottom: 6px;
+			}
+
+			.phone-wrapper {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+			}
+
+			.phone-wrapper .flag {
+				white-space: nowrap;
+			}
+
+			.submit-btn {
+				padding: 15px;
+				background-color: #e62421;
+				color: white;
+				border: none;
+				width: 100%;
+				border-radius: 5px;
+				font-weight: bold;
+				cursor: pointer;
+				margin-top: 15px;
+				text-decoration: none;
+				display: inline-block;
+			}
+
+			.error-msg {
+				display: none;
+				color: red;
+				text-align: left;
+				font-size: 12px;
+				margin-bottom: 25px;
+			}
+
+			.form-alert {
+				display: none;
+				background-color: #ff6b6b;
+				color: white;
+				padding: 30px;
+				margin-top: 10px;
+				border-radius: 5px;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<section class="up">
+			<div class="container up__container">
+				<div class="up__top">
+					<div class="up__top-left">
+						<img class="up__top-img" src="img/frame-logo.webp" alt="frame-logo" />
+						<p class="up__top-text">28-29-30-Oktyabr</p>
+					</div>
+					<h2 class="up__top-title">20:00</h2>
+				</div>
+				<h2 class="up__title">So’z yodlashga <span>ko’p vaqt sarflamasdan</span> Speakingni 3x oshirish mumkin!</h2>
+				<div class="up__wrapper">
+					<img class="up__wrapper-img" src="img/up-img.png" alt="up-img" />
+					<div class="up__wrapper-info">
+						<h2 class="up__wrapper-info-title">Teacher Shahlo</h2>
+						<ul class="up__wrapper-info-list">
+							<li class="up__wrapper-info-list-item">Xalqaro toifadagi General English Teacher & English Speaking Coach</li>
+							<li class="up__wrapper-info-list-item">O’quvchilarni 1-darsdanoq gapirtiradigan RESP Metodikasi muallifi</li>
+							<li class="up__wrapper-info-list-item">Speaking Hub onlayn maktabi asoschisi</li>
+						</ul>
+					</div>
+				</div>
+				<button class="up__btn" onclick="openModal()">MENI BOSING!</button>
+				<p class="up__text">Bepul darsga qatnashish uchun bosing</p>
+				<button class="speaking__time">1:00</button>
+
+				<div class="up__info">
+					<img class="up__info-img" src="img/up-gift.png" alt="up-gift" />
+					<div class="up__info-right">
+						<h2 class="up__info-right-title">Darsga kirganlar uchun bonus:</h2>
+						<p class="up__info-right-text">SPEAKING’ni 30 kunda chiqarish kun-tartibi</p>
+					</div>
+				</div>
+				<h2 class="up__title-free"><span>BEPUL darsda</span> siz:</h2>
+				<ul class="up__list">
+					<li class="up__list-item">
+						<div class="up__list-item-number">01</div>
+						<p class="up__list-item-text w1">Gaplarni bir-biriga <span>ulab erkin</span> gapirishni</p>
+					</li>
+					<li class="up__list-item p">
+						<div class="up__list-item-number">02</div>
+						<p class="up__list-item-text w2">O’rgangan barcha grammatikangizni Speaking'da o’ylanmasdan qo’llashni o’rganasiz</p>
+					</li>
+					<li class="up__list-item">
+						<div class="up__list-item-number">03</div>
+						<p class="up__list-item-text w3"><span>1 kunda 1000 ta so’z</span> yodlash MNEMONIKA texnikasini o’rganasiz</p>
+					</li>
+				</ul>
+				<h2 class="up__title-opinion">Bepul darsdan fikrlar 👇🏻</h2>
+				<div class="speaking__bottom">
+					<img class="speaking__bottom-img1" src="img/rectangel.webp" alt="rectangel" />
+					<img class="speaking__bottom-img2" src="img/rectangel2.webp" alt="rectangel2" />
+				</div>
+				<button class="up__btn" onclick="openModal()">MENI BOSING!</button>
+				<div class="up__bottom">
+					<p class="up__bottom-text">
+						Jonli darsga bepul qatnashish uchun bosing
+						<img src="img/up-arrow.webp" alt="up-arrow" />
+					</p>
+				</div>
+				<div id="myModal" class="modal">
+					<div class="modal-content">
+						<span class="close" onclick="closeModal()">&times;</span>
+						<h2 class="modal-title">
+							Davom etish uchun <br />
+							ma'lumotlaringizni kiriting
+						</h2>
+
+						<label for="name">Ismingiz</label>
+						<input class="input" type="text" id="name" name="ism" placeholder="Ismingizni kiriting" />
+						<small class="error-msg" id="nameError">Required field</small>
+
+						<label for="phone">Telefon raqamingiz</label>
+						<div class="phone-wrapper">
+							<input class="input" type="tel" id="phone" name="number" placeholder="+998 99-999-9999" autocomplete="tel" />
+						</div>
+						<small class="error-msg" id="phoneError">Required field</small>
+
+						<div id="formAlert" class="form-alert">Please fill in all required fields</div>
+
+						<!-- DAVOM ETISH tugmasi -->
+						<a id="submitButton" class="submit-btn" onclick="validateForm()">DAVOM ETISH</a>
+
+						<!-- Yuklanmoqda tugmasi (dastlab yashirin) -->
+						<div id="loader" style="display: none; text-align: center; margin-top: 15px">
+							<button disabled class="submit-btn">⏳ Yuklanmoqda...</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- JS -->
+		<script src="js/main.js" defer></script>
+	</body>
+</html>
