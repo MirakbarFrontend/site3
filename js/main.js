@@ -1,4 +1,4 @@
-const btn = document.querySelector('.speaking__wrapper-left-btn');
+const btn = document.querySelector('.speaking__time');
 let time = 60; // 1 daqiqa = 60 soniya
 
 function startCountdown() {
